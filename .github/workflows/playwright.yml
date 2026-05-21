@@ -1,4 +1,4 @@
-name: Playwright Automation
+name: Playwright Java Tests
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  playwright-test:
+  test:
     runs-on: ubuntu-latest
 
     steps:
@@ -14,16 +14,17 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - name: Setup Java
+        uses: actions/setup-java@v4
         with:
-          node-version: 22
+          distribution: 'temurin'
+          java-version: '17'
 
-      - name: Install Dependencies
-        run: npm install
+      - name: Build Project
+        run: mvn clean install
 
-      - name: Install Browsers
-        run: npx playwright install --with-deps
+      - name: Install Playwright Browsers
+        run: mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="install --with-deps"
 
       - name: Run Tests
-        run: npx playwright test
+        run: mvn test
