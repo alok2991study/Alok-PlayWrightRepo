@@ -25,9 +25,6 @@ public class LoginPage {
 
     // Login method
     public void login(String username, String password) {
-
-        page.navigate("https://secure2.us.rdy.ukg.dev/ta/admin.login");
-
         usernameInput.fill(username);
         passwordInput.click();
         passwordInput.fill(password);
