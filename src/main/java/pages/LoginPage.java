@@ -25,6 +25,8 @@ public class LoginPage {
 
     // Login method
     public void login(String username, String password) {
+        page.navigate(ConfigReader.getBaseUrl());
+        page.waitForLoadState();
         usernameInput.fill(username);
         passwordInput.click();
         passwordInput.fill(password);
