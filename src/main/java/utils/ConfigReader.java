@@ -34,7 +34,9 @@ public class ConfigReader {
         return value.trim();
     }
 
-    public static String getBaseUrl()  { return get("base.url");  }
+    public static String getBaseUrl()  {
+        String env = get("env");
+        return get("url." + env);  }
     public static String getUsername() { return get("username");  }
     public static String getPassword() { return get("password");  }
     public static String getBrowser()  { return get("browser");   }
