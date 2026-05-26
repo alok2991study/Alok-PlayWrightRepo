@@ -2,6 +2,7 @@ package pages;
 
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
+import utils.ConfigReader;
 
 public class LoginPage {
 
@@ -33,5 +34,8 @@ public class LoginPage {
         signInButton.click();
 
         System.out.println(page.title());
+    }
+    public void login() {
+        login(ConfigReader.getUsername(), ConfigReader.getPassword());
     }
 }

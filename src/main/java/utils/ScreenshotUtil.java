@@ -9,7 +9,7 @@ import java.util.Date;
 
 public class ScreenshotUtil {
 
-    public static void takeScreenshot(Page page, String fileName) {
+    public static String takeScreenshot(Page page, String fileName) {
 
         // Create screenshots folder automatically
         File directory = new File("screenshots");
@@ -28,5 +28,16 @@ public class ScreenshotUtil {
                 .setFullPage(true));
 
         System.out.println("Screenshot saved: " + path);
+        return path;
+    }
+    // 👇 Overload — auto screenshot on failure
+    public static String takeScreenshotOnFailure(Page page, String testName) {
+        return takeScreenshot(page, testName + "_FAILED");
+    }
+
+    // 👇 Overload — screenshot as byte array for Allure inline embed
+    public static byte[] takeScreenshotAsBytes(Page page) {
+        return page.screenshot(new Page.ScreenshotOptions()
+                .setFullPage(true));
     }
 }
