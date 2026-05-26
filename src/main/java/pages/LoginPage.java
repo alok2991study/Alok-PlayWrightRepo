@@ -20,7 +20,7 @@ public class LoginPage {
         // Locators
         usernameInput = page.locator("//input[@name='Username']");
         passwordInput = page.locator(".viewablePasswordField input");
-        signInButton = page.locator("text=Sign In");
+        signInButton = page.locator("//button[@name='LoginButton']");
     }
 
     // Login method
