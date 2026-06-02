@@ -9,7 +9,6 @@ public class ConfigReader {
 
     static {
         try {
-            // 👇 Reads from main/resources — no hardcoded path needed
             InputStream input = ConfigReader.class
                     .getClassLoader()
                     .getResourceAsStream("config.properties");
@@ -40,5 +39,6 @@ public class ConfigReader {
     public static String getUsername() { return get("username");  }
     public static String getPassword() { return get("password");  }
     public static String getBrowser()  { return get("browser");   }
-    public static boolean isHeadless() { return Boolean.parseBoolean(get("headless")); }
-}
+    public static boolean isHeadless() { return Boolean.parseBoolean(get("headless"));}
+    public static String getProperty(String key) { return properties.getProperty(key);}
+        }

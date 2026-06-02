@@ -6,6 +6,7 @@ import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Playwright;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import utils.ConfigReader;
 import utils.ExtentReportManager;
 
 public class BaseTest {
@@ -25,6 +26,14 @@ public class BaseTest {
         );
 
         page = browser.newPage();
+
+        page.setDefaultTimeout(
+                Integer.parseInt(ConfigReader.getProperty("timeout"))
+        );
+
+        page.setDefaultNavigationTimeout(
+                Integer.parseInt(ConfigReader.getProperty("navigationTimeout"))
+        );
     }
 
     @AfterMethod
