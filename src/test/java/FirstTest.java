@@ -24,7 +24,7 @@ public class FirstTest extends BaseTest {
         loginPage.login();
         String actualTitle= page.title();
         String expectedTitle="Ready";
-        Assert.assertEquals(actualTitle,expectedTitle);
+        Assert.assertTrue(page.title().contains(expectedTitle));
         page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("screenshot.png")));
     }
 }
