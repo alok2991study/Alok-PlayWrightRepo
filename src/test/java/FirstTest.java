@@ -23,7 +23,7 @@ public class FirstTest extends BaseTest {
         LoginPage loginPage = new LoginPage(page);
         ExcelUtil excel =
                 new ExcelUtil(
-                        "src/test/resources/testData.xlsx",
+                        "src/main/resources/testData.xlsx",
                         "Login");
 
         String username =
