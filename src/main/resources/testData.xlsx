@@ -1,0 +1,7 @@
+| TestCaseID   | Username    | Password    | ExpectedResult |
+| ------------ | ----------- | ----------- | -------------- |
+| TC_Login_001 | admin       | password123 | Success        |
+| TC_Login_002 | admin2      | password456 | Success        |
+| TC_Login_003 | invaliduser | wrongpass   | Failure        |
+| TC_Login_004 | lockeduser  | locked123   | Failure        |
+| TC_Login_005 | blankuser   | password123 | Failure        |

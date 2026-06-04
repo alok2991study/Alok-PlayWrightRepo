@@ -7,6 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pages.LoginPage;
+import utils.ExcelUtil;
 
 import java.nio.file.Paths;
 
@@ -20,6 +21,16 @@ public class FirstTest extends BaseTest {
     public void firstTest() {
 
         LoginPage loginPage = new LoginPage(page);
+        ExcelUtil excel =
+                new ExcelUtil(
+                        "src/test/resources/testdata.xlsx",
+                        "Login");
+
+        String username =
+                excel.getCellData(1,0);
+
+        String password =
+                excel.getCellData(1,1);
 
         loginPage.login();
         String actualTitle= page.title();
